@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="046f2528-69b8-4fe4-a8d1-6dbba6652a8d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/api/func.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/func.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -29,8 +28,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/api/func.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="529">
-              <caret line="38" column="19" selection-start-line="38" selection-start-column="19" selection-end-line="38" selection-end-column="19" />
+            <state relative-caret-position="478">
+              <caret line="35" column="30" selection-start-line="35" selection-start-column="30" selection-end-line="35" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -257,8 +256,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/api/func.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="529">
-          <caret line="38" column="19" selection-start-line="38" selection-start-column="19" selection-end-line="38" selection-end-column="19" />
+        <state relative-caret-position="478">
+          <caret line="35" column="30" selection-start-line="35" selection-start-column="30" selection-end-line="35" selection-end-column="30" />
         </state>
       </provider>
     </entry>
