@@ -2,7 +2,6 @@ from django import views, http
 from api.models import BusStop as bs
 from api.serializers import BusStopSerializer
 from rest_framework import generics, parsers, renderers
-from haversine import haversine
 import api.func
 
 
