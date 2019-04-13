@@ -29,8 +29,8 @@ class CreateWay(views.View):
         data=data['txtway'].split('<br/>')
         way = data[1] + '. ' + data[2] + '. '
         data = data[3].split('</li><li>')
-        way = way + '. ' + data[0][27:].replace + ' ' + data[1] + 'Затем пешком ' + data[2].replace('</li></ul>', '')
+        way = way + '. ' + data[0][27:] + ' ' + data[1] + 'Затем пешком ' + data[2].replace('</li></ul>', '')
         way = way.replace(' км.', ' километров.')
         way = way.replace(' м,', ' метров,')
-        way = way.replace('\n', 'n')
+        way = way.replace('\n', '')
         return http.HttpResponse(renderers.JSONRenderer().render({'way':way.replace('мин.', 'минут')}))
