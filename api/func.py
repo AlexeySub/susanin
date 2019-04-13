@@ -33,7 +33,7 @@ def findStop(data, model):
                               (float(data['latitude']), float(data['longitude']))): busStopLoGte.busStopName})
     except:
         None
-    if min(lst.keys()) <= 0.01:
+    if min(lst.keys()) <= 0.015:
         return(lst[min(lst.keys())])
     else:
         return None
