@@ -1,5 +1,6 @@
 from haversine import haversine
 
+
 def findStop(data, model):
     lst = {}
     try:
@@ -17,12 +18,12 @@ def findStop(data, model):
     except:
         None
     try:
-        busStopLaGte = model.objects.filter(latitude__gt=data['latitude']).order_by('latitude')[0:1].get()
+        busStopLaGte = model.objects.filter(latitude__gte=data['latitude']).order_by('latitude')[0:1].get()
         print(busStopLaGte.latitude)
     except:
         None
     try:
-        busStopLoGte = model.objects.filter(longitude__gt=data['longitude']).order_by('longitude')[0:1].get()
+        busStopLoGte = model.objects.filter(longitude__gte=data['longitude']).order_by('longitude')[0:1].get()
         print(busStopLoGte.longitude)
         lst.update({haversine((float(busStopLoGte.latitude), float(busStopLoGte.longitude)),
                               (float(data['latitude']), float(data['longitude']))): busStopLaGte.busStopName})
@@ -35,6 +36,7 @@ def findStop(data, model):
         None
     return(lst)
 
+
 def findWay(data):
     data = data['txtway'].split('<br/>')
     way = data[1] + '. ' + data[2] + '. '
@@ -45,3 +47,6 @@ def findWay(data):
     way = way.replace('\n', '')
     way = way.replace(' ч ', 'час')
     return {'way': way.replace('мин.', 'минут')}
+
+
+
