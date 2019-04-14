@@ -34,6 +34,6 @@ class CheckBusStop(views.View):
         lst = api.func.findStop(data, bs)
         rangeBus = min(lst.keys())
         if rangeBus <= 0.1:
-            return http.HttpResponse(renderers.JSONRenderer().render({'busStop':lst[rangeBus]}))
+            return http.HttpResponse(renderers.JSONRenderer().render({'busStop': lst[rangeBus]}))
         else:
             return http.HttpResponse(renderers.JSONRenderer().render({'busStop': 'None'}))
