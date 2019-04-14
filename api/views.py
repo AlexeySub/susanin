@@ -28,22 +28,13 @@ class CreateWay(views.View):
         return http.HttpResponse(renderers.JSONRenderer().render(api.func.findWay(data)))
 
 
-class CheckBusStop(views.View):
+"""class CheckBusStop(views.View):
     def post(self, request):
         data = parsers.JSONParser().parse(request)
         lst = api.func.findStop(data, bs)
         rangeBus = min(lst.keys())
-        f = open('busstop.txt', 'w')
-        if rangeBus <= 0.06 and lst[min(lst.keys())]==f.read():
+        if rangeBus <= 0.06:
             return http.HttpResponse(renderers.JSONRenderer().render({'busStop': lst[rangeBus]}))
         else:
             return http.HttpResponse(renderers.JSONRenderer().render({'busStop': 'None'}))
-
-
-
-class SaveBusStop(views.View):
-    def post(self, request):
-        data = parsers.JSONParser().parse(request)
-        f = open('busstop.txt', 'w')
-        f.write(data['busname'])
-        f.close()
+"""
