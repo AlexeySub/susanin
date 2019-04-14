@@ -31,5 +31,5 @@ class CreateWay(views.View):
         way = data[1] + '. ' + data[2] + '. '
         data = data[3].split('</li><li>')
         way = way + '. ' + data[0][27:] + ' ' + data[1] + 'Затем ' + data[2].replace('</li></ul>', '')
-        reduce(lambda a, kv: a.replace(*kv), repls.items(), way)
+        way = way.replace(repls)
         return http.HttpResponse(renderers.JSONRenderer().render({'way':way.replace('мин.', 'минут')}))
