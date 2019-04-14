@@ -15,21 +15,25 @@ class BSDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = BusStopSerializer
 
 
-class CheckBusStop(views.View):
+class BusStopAround(views.View):
     def post(self, request):
         data = parsers.JSONParser().parse(request)
-        return http.HttpResponse(renderers.JSONRenderer().render({'busStop':api.func.findStop(data, bs)}))
+        lst = api.func.findStop(data, bs)
+        return http.HttpResponse(renderers.JSONRenderer().render({'busStop': lst[min(lst.keys())]}))
 
 
 class CreateWay(views.View):
     def post(self, request):
         data = parsers.JSONParser().parse(request)
-        data=data['txtway'].split('<br/>')
-        way = data[1] + '. ' + data[2] + '. '
-        data = data[3].split('</li><li>')
-        way = way + '. ' + data[0][26:] + ' ' + data[1] + ' Затем ' + data[2].replace('</li></ul>', '')
-        way = way.replace(' км.', ' километров.')
-        way = way.replace(' м,', ' метров,')
-        way = way.replace('\n', '')
-        way = way.replace(' ч ', 'час')
-        return http.HttpResponse(renderers.JSONRenderer().render({'way':way.replace('мин.', 'минут')}))
+        return http.HttpResponse(renderers.JSONRenderer().render(api.func.findWay(data)))
+
+
+class CheckBusStop(views.View):
+    def post(self, request):
+        data = parsers.JSONParser().parse(request)
+        lst = api.func.findStop(data, bs)
+        rangeBus = min(lst.keys())
+        if rangeBus <= 0.1:
+            return http.HttpResponse(renderers.JSONRenderer().render({'busStop':lst[rangeBus]}))
+        else:
+            return http.HttpResponse(renderers.JSONRenderer().render({'busStop': 'None'}))

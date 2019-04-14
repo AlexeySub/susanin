@@ -33,4 +33,15 @@ def findStop(data, model):
                               (float(data['latitude']), float(data['longitude']))): busStopLoGte.busStopName})
     except:
         None
-    return(lst[min(lst.keys())])
+    return(lst)
+
+def findWay(data):
+    data = data['txtway'].split('<br/>')
+    way = data[1] + '. ' + data[2] + '. '
+    data = data[3].split('</li><li>')
+    way = way + '. ' + data[0][26:] + ' ' + data[1] + ' Затем ' + data[2].replace('</li></ul>', '')
+    way = way.replace(' км.', ' километров.')
+    way = way.replace(' м,', ' метров,')
+    way = way.replace('\n', '')
+    way = way.replace(' ч ', 'час')
+    return {'way': way.replace('мин.', 'минут')}
