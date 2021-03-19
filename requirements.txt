@@ -5,7 +5,7 @@ DAWG-Python==0.7.2
 dj-database-url==0.5.0
 Django==2.1.7
 django-cors-headers==2.5.2
-djangorestframework==3.9.1
+djangorestframework==3.11.2
 djangorestframework-jwt==1.11.0
 docopt==0.6.2
 git-pythonpath==0.1.1
